@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DeckOfCardsAPI.Models.Card>
+
+@{
+    ViewBag.Title = "DisplayCards";
+}
+
+<h2>DisplayCards</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suit)
+        </th>
+        @*
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        *@
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Suit)
+        </td>
+        <td>
+            <img src="@item.ImageUrl" height="70"/>
+        </td>
+
+    </tr>
+}
+
+</table>
+
+<form action="~/Home/DisplayCards">
+    <input type="submit" value="Five New"/>
+</form>
